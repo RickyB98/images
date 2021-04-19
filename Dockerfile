@@ -5,7 +5,7 @@
 # ----------------------------------
 FROM        openjdk:8-jre-slim
 
-LABEL       author="Michael Parker" maintainer="parker@pterodactyl.io"
+LABEL       author="Riccardo Bello" maintainer="mail@rickyb98.me"
 
 RUN apt-get update -y \
  && apt-get install -y curl ca-certificates openssl git tar sqlite fontconfig tzdata iproute2 \
