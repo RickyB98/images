@@ -8,8 +8,13 @@ FROM        openjdk:8-jre-slim
 LABEL       author="Riccardo Bello" maintainer="mail@rickyb98.me"
 
 RUN apt-get update -y \
- && apt-get install -y curl ca-certificates openssl git tar sqlite fontconfig tzdata iproute2 \
- && useradd -d /home/container -m container
+ && apt-get install -y curl ca-certificates openssl git tar sqlite fontconfig tzdata iproute2 unzip \
+ && useradd -d /home/container -m container \
+ && curl -fsSL https://deb.nodesource.com/setup_15.x | bash - \
+ && apt-get update -y \
+ && apt-get install -y gcc g++ make \
+ && apt-get install -y nodejs \
+ && npm install npm@7.10.0 -g
  
 USER container
 ENV  USER=container HOME=/home/container
