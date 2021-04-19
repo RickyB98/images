@@ -11,16 +11,6 @@ DEPLOY_FILE=deploy.conf
 
 if test -f "$DEPLOY_FILE"; then
     if grep -q DEPLOY_ON $DEPLOY_FILE; then
-        if ! command -v npm &> /dev/null; then
-            # Install curl, git and node
-            apt update
-            apt install -y curl
-            curl -fsSL https://deb.nodesource.com/setup_15.x | bash -
-            apt update
-            apt install -y jq git gcc g++ make
-            apt install nodejs
-            npm install npm@7.10.0 -g
-        fi
         MODIFIED_DEPLOY=`eval echo $(echo ${DEPLOY} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
         # Run deployment script
         eval ${MODIFIED_DEPLOY}
