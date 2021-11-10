@@ -3,7 +3,7 @@
 # Environment: Java (glibc support)
 # Minimum Panel Version: 0.6.0
 # ----------------------------------
-FROM        openjdk:8-jre-slim
+FROM        openjdk:16-slim
 
 LABEL       author="Riccardo Bello" maintainer="mail@rickyb98.me"
 
