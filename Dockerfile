@@ -3,12 +3,12 @@
 # Environment: Java (glibc support)
 # Minimum Panel Version: 0.6.0
 # ----------------------------------
-FROM        openjdk:16-slim
+FROM        openjdk:8-jre-slim
 
 LABEL       author="Riccardo Bello" maintainer="mail@rickyb98.me"
 
 RUN apt-get update -y \
- && apt-get install -y curl ca-certificates openssl git tar sqlite fontconfig tzdata iproute2 unzip \
+ && apt-get install -y curl ca-certificates openssl git tar sqlite3 fontconfig tzdata iproute2 unzip \
  && useradd -d /home/container -m container \
  && curl -fsSL https://deb.nodesource.com/setup_15.x | bash - \
  && apt-get update -y \
